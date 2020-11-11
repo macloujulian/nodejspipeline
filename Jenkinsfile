@@ -5,7 +5,7 @@ node {
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commitid = readFile('.git/commit-id')
    }
-   stage('Testeo') {
+   stage('test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
        sh 'npm install --only=dev'
        sh 'npm test'
