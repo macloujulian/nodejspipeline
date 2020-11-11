@@ -11,7 +11,7 @@ node {
        sh 'npm test'
      }
    }
-   stage('Docker Push & Build') {
+   stage('Docker Build & Push') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
        def app = docker.build("wardviaene/docker-nodejs-demo:${commitid}", '.').push()
      }
