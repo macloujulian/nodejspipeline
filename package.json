@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js"
-    "tests": "mocha"
+    "test": "mocha"
   },
   "engines": {
     "node": "^14.8.0"
