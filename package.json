@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js"
-    "test": "npm install inherits && mocha"
+    "test": "mocha"
   },
   "engines": {
     "node": "^14.8.0"
