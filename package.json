@@ -11,9 +11,9 @@
     "node": "^14.8.0"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.14.0",
     "http-errors": "^1.7.0",
-    "mysql": "^2.18.1"
+    "mysql": "^2.10.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
