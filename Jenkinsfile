@@ -1,9 +1,9 @@
 node {
-   def label
+   def gitcommit
    stage('Verificación SCM') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"                        
-     label = readFile('.git/commit-id')
+     gitcommit = readFile('.git/commit-id')
    }
    stage('test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
@@ -13,7 +13,7 @@ node {
    }
    stage('Docker Build & Push') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-       def app = docker.build("wardviaene/docker-nodejs-demo:${label}", '.').push()
+       def app = docker.build("wardviaene/docker-nodejs-demo:${gitcommit}", '.').push()
      }
    }
 }
