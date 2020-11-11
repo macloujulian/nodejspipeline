@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js"
+    "test": "mocha"
   },
   "engines": {
     "node": "^14.8.0"
@@ -12,5 +13,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql": "^2.18.1"
-  }
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }    
 }
