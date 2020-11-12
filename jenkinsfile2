@@ -3,7 +3,7 @@ node {
    stage('Verificacion SCM') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"
-     gitcommit = readFile('.git/commit-id')
+     gitcommit = readFile('.git/commit-id').trim()
    }
    stage('test') {
      def contenedortest = docker.image('node:4.6')
@@ -15,7 +15,8 @@ node {
    }                   
    stage('Docker Build & Push') {
      docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-       def app = docker.build("macloujulian/nodejsapp:${gitcommit}", '.').push()
+      def nuestraapp = docker.build("macloujulian/nodejsapp:${gitcommit}", ".")
+      nuestraapp.push()
      }
    }
 }
