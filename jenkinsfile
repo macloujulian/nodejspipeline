@@ -13,7 +13,7 @@ node {
    }
    stage('Docker Build & Push') {
      docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-      def nuestraapp = docker.build("macloujulian/nodejsapp:${gitcommit}", " . ")
+      def nuestraapp = docker.build("macloujulian/nodejsapp:${gitcommit}", "--build-arg .")
       nuestraapp.push()
      }
    }
